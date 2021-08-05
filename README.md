@@ -14,8 +14,8 @@ There are some following steps
 - Add the ArSceneView as shown which is provided by [Sceneform ux library](https://developers.google.com/sceneform/reference/com/google/ar/sceneform/ux/package-summary).
 - Install Google [Sceneform tools (beta) plugin](https://plugins.jetbrains.com/plugin/10698-google-sceneform-tools-beta-) from android studio only.
 - Create an augmented image
-- Make assets folder in app.
-- ![image](https://user-images.githubusercontent.com/78479435/128021088-6dda2a64-17b2-407a-bbcc-adf81676f124.png)
+- Add image in drawable folder in app.
+- ![image](https://user-images.githubusercontent.com/78479435/128372282-3a933bc6-adbb-4d95-8e50-7aafa7ae43a3.png)
 - ![rabbit](https://user-images.githubusercontent.com/78479435/128371921-c3aef354-b43f-4f0e-8472-eab501bb82ab.png)
 
 - Match the image in camera frame with the augmented image
