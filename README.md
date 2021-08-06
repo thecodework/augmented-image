@@ -15,7 +15,9 @@ There are some following steps
 - Install Google [Sceneform tools (beta) plugin](https://plugins.jetbrains.com/plugin/10698-google-sceneform-tools-beta-) from android studio only.
 - Create an augmented image
 - Add image in drawable folder in app.
-- ![image](https://user-images.githubusercontent.com/78479435/128372282-3a933bc6-adbb-4d95-8e50-7aafa7ae43a3.png)
+- ![image](https://user-images.githubusercontent.com/78479435/128532532-b55e2fb2-5ed6-4c64-a05e-1a25e654230f.png)
+- Add glb file in assets folder in app.
+- ![image](https://user-images.githubusercontent.com/78479435/128532753-6b7768ec-e1b4-4437-8fc0-9219dc75dc01.png)
 - ![snsr_image (1)](https://user-images.githubusercontent.com/78479435/128531749-0104eb39-f1cf-42c2-8cb6-c98dd16d09d7.jpg)
 
 - Match the image in camera frame with the augmented image
