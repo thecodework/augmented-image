@@ -16,7 +16,7 @@ There are some following steps
 - Create an augmented image
 - Add image in drawable folder in app.
 - ![image](https://user-images.githubusercontent.com/78479435/128372282-3a933bc6-adbb-4d95-8e50-7aafa7ae43a3.png)
-- ![logo](https://user-images.githubusercontent.com/78479435/128531536-deaeb200-1339-477f-8edb-1ebf983fc508.png)
+- ![snsr_image (1)](https://user-images.githubusercontent.com/78479435/128531749-0104eb39-f1cf-42c2-8cb6-c98dd16d09d7.jpg)
 
 - Match the image in camera frame with the augmented image
 - If matched, place an AR Object.
@@ -38,7 +38,8 @@ There are some following steps
 
 ## How we overcome the difficulties?
 - After the reseach we find that we can only scan image that we stored in our projects assets folder.
-- ![logo](https://user-images.githubusercontent.com/78479435/128531573-aa39f6f2-18bf-4777-8048-4780a6821d7f.png)
+- ![snsr_image (1)](https://user-images.githubusercontent.com/78479435/128531786-15747cfa-3c80-4e4e-bf6f-3eaa5bb03cb6.jpg)
+
 
 ## What we tried to do but did not succeed?
 - I our scenario, we had to identify the pressure sensor. Unfortunately the android ARCore SDK does not support the 3-D objects recognition. So we were not able to identify the sensor. Instead, we added an image on top of the sensors with the‘Sensor Id’. This is what we used as an augmented image as well.
