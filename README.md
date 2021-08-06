@@ -30,7 +30,7 @@ There are some following steps
 	
 ## Output will be
 - After scanning the image/poster you will see the 3D model of respective image.
-- ![Screenshot_20210804-185536_2](https://user-images.githubusercontent.com/78479435/128374757-a91e6947-dc91-4e5f-856b-4c0611a4d81e.png=100x100)
+- ![Screenshot_20210804-185536_2](https://user-images.githubusercontent.com/78479435/128374757-a91e6947-dc91-4e5f-856b-4c0611a4d81e.png| width=50)
 
 ## What difficulties we faced while working on project?
 - In the beginning scanning the image was quite difficult for us because we are scaning ramdom images.
