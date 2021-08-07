@@ -3,7 +3,6 @@
 
 ## what this project about?
 - The [Augmented Images](https://developers.google.com/ar/develop/java/augmented-images) APIs in [ARCore](https://developers.google.com/ar) lets you build AR apps that can detect and augment 2D images in the user's environment,such as posters or product packaging. In this Project, we will see how to detect and augmented image and show information using a ViewRenderable or show a 3-D model. We provide a set of reference images. Once ARCore begins tracking an image, it provides estimates for image position and orientation each frame. All tracking happens on the device. No internet connection is required to detect and track images. [ARcore](https://developers.google.com/ar) scan the image that we store in the database once an image is detected. [ARcore](https://developers.google.com/ar) create 3D image of that image.
-We implemented the [ARCore](https://developers.google.com/ar) with a ViewRenderable to show the information on a card. And it looks pretty cool.
 
 ## Installation steps
 
