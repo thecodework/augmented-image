@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private boolean matrixDetected = false;
     private boolean rabbitDetected = false;
+    private boolean logoDetected = false;
 
     private AugmentedImageDatabase database;
 
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements
         // Disable plane detection
         config.setPlaneFindingMode(Config.PlaneFindingMode.DISABLED);
 
-        if(session.isDepthModeSupported(Config.DepthMode.AUTOMATIC))
+        if (session.isDepthModeSupported(Config.DepthMode.AUTOMATIC))
             config.setDepthMode(Config.DepthMode.AUTOMATIC);
 
         // Images to be detected by our AR need to be added in AugmentedImageDatabase
@@ -115,9 +116,11 @@ public class MainActivity extends AppCompatActivity implements
 
         Bitmap matrixImage = BitmapFactory.decodeResource(getResources(), R.drawable.matrix);
         Bitmap rabbitImage = BitmapFactory.decodeResource(getResources(), R.drawable.rabbit);
+        Bitmap logoImage = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
         // Every image has to have its own unique String identifier
         database.addImage("matrix", matrixImage);
         database.addImage("rabbit", rabbitImage);
+        database.addImage("logo", logoImage);
 
         config.setAugmentedImageDatabase(database);
 
@@ -223,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements
     // Every time new image is processed by ARCore and ready, this method is called
     public void onUpdate(FrameTime frameTime) {
         // If there are both images already detected, for better CPU usage we do not need scan for them
-        if (matrixDetected && rabbitDetected)
+        if (matrixDetected && rabbitDetected && logoDetected)
             return;
 
         Frame frame = arFragment.getArSceneView().getArFrame();
@@ -295,6 +298,39 @@ public class MainActivity extends AppCompatActivity implements
                                 .exceptionally(
                                         throwable -> {
                                             Toast.makeText(this, "Unable to load rabbit model", Toast.LENGTH_LONG).show();
+                                            return null;
+                                        });
+                    }
+                    if (!logoDetected && image.getName().equals("logo")) {
+                        logoDetected = true;
+                        Toast.makeText(this, "logo tag detected", Toast.LENGTH_LONG).show();
+
+                        WeakReference<MainActivity> weakActivity = new WeakReference<>(this);
+                        ModelRenderable.builder()
+                                .setSource(this, Uri.parse("models/Logo.glb"))
+                                .setIsFilamentGltf(true)
+                                .build()
+                                .thenAccept(logoModel -> {
+                                    MainActivity activity = weakActivity.get();
+                                    if (activity != null) {
+
+                                        // Setting anchor to the center of AR tag
+                                        AnchorNode anchorNode = new AnchorNode(image.createAnchor(image.getCenterPose()));
+
+                                        arFragment.getArSceneView().getScene().addChild(anchorNode);
+
+                                        TransformableNode modelNode = new TransformableNode(arFragment.getTransformationSystem());
+                                        modelNode.setParent(anchorNode);
+                                        RenderableInstance renderableInstance = modelNode.setRenderable(logoModel);
+
+                                        // Removing shadows
+                                        renderableInstance.setShadowCaster(true);
+                                        renderableInstance.setShadowReceiver(true);
+                                    }
+                                })
+                                .exceptionally(
+                                        throwable -> {
+                                            Toast.makeText(this, "Unable to load logo model", Toast.LENGTH_LONG).show();
                                             return null;
                                         });
                     }
